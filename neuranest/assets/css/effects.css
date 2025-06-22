@@ -1,0 +1,130 @@
+/* assets/css/effects.css */
+
+/* Staggered fade/blur/slide in */
+@keyframes fadeUp {
+    from { opacity: 0; filter: blur(8px); transform: translateY(32px);}
+    to { opacity: 1; filter: blur(0); transform: none;}
+}
+.animate-stagger { animation: fadeUp 1s cubic-bezier(.7,0,.2,1) forwards; opacity: 0;}
+.animate-delay-1 { animation-delay: .15s; }
+.animate-delay-2 { animation-delay: .3s; }
+.animate-delay-3 { animation-delay: .45s; }
+.animate-delay-4 { animation-delay: .6s; }
+.animate-delay-5 { animation-delay: .75s; }
+
+/* Typing animation for logo text */
+.typing::after {
+    content: '';
+    animation: typingdots 1.2s infinite steps(3, jump-none);
+    font-weight: 400;
+}
+@keyframes typingdots {
+    0%, 20% { content: ''; }
+    40% { content: '.'; }
+    60% { content: '..'; }
+    80%,100% { content: '...'; }
+}
+
+/* AI Typing effect in chat preview */
+.ai-typing {
+    border-right: 2px solid #818cf8;
+    animation: blink-caret 0.75s step-end infinite;
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #818cf8; }
+}
+
+/* Cool scroll effects */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.parallax-element {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Floating elements animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(1deg); }
+    66% { transform: translateY(5px) rotate(-1deg); }
+}
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Glowing effect on scroll */
+.glow-on-scroll {
+    transition: all 0.3s ease;
+}
+.glow-on-scroll.glowing {
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.4), 0 0 60px rgba(240, 147, 251, 0.2);
+    transform: scale(1.02);
+}
+
+/* Particle trail effect */
+.particle-trail {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #667eea, transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleFade 2s ease-out forwards;
+    z-index: 9998; /* Just below modals */
+}
+@keyframes particleFade {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0); }
+}
+
+/* Scroll progress indicator */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #f093fb);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* Tilt effect on hover */
+.tilt-effect {
+    transition: transform 0.3s ease;
+}
+.tilt-effect:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.05);
+}
+
+/* Ripple effect on buttons */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+}
+@keyframes ripple-animation {
+    to { transform: scale(4); opacity: 0; }
+}
+
+/* Mobile Menu animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
